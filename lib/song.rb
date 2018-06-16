@@ -5,13 +5,12 @@ class Song
     @name = name
   end
 
-
   def artist_name
-    self.artist ? self.artist_name : nil
+    self.artist.name
   end
 
   def artist_name
-    self.artist.name
+    self.artist ? self.artist_name : nil
   end
 
 end
