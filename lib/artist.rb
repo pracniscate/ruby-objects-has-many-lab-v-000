@@ -12,7 +12,7 @@ class Artist
   # take in an argument of a song and associate that song with the artist by telling the song it belongs to the artist
   def add_song(song)
     song.artist = self # object reciprocity: song belongs to artist
-    # @songs << song
+    @songs << song
     @@all << song
   end
 
