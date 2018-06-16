@@ -1,7 +1,7 @@
 class Author
-  attr_accessor :name
+  attr_accessor :name, :posts
 
-  @@post_count = 0
+  @@all_posts = 0
 
   def initialize(name)
     @name = name
@@ -16,7 +16,7 @@ class Author
   def add_post(post)
     post.author = self  # object reciprocity
     @posts << post
-    @@post_count += 1
+    @@all_posts += 1
   end
 
   # create a new post with the name argument and associate the post and the author
@@ -26,7 +26,7 @@ class Author
   end
 
   def self.post_count
-    @@post_count
+    @@all_posts
   end
 
 end
