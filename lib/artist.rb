@@ -24,9 +24,7 @@ class Artist
   # take in an argument of a song name, create a new song with it and associate the song and artist
   def add_song_by_name(name)
     song = Song.new(name)
-    @songs << song
-    song.artist = self # object reciprocity: song belongs to artist
-    # return the song
+    self.add_song(song)
     song
   end
 
