@@ -1,7 +1,7 @@
 class Artist
   attr_accessor :name, :songs
 
-  @@song_count = 0
+  @@all = []
 
   def initialize(name)
     @name = name
@@ -11,9 +11,9 @@ class Artist
 
   # take in an argument of a song and associate that song with the artist by telling the song it belongs to the artist
   def add_song(song)
-    @songs << song
     song.artist = self # object reciprocity: song belongs to artist
-    @@song_count += 1
+    @songs << song
+    @@all << song
   end
 
   # expose the collection
@@ -34,7 +34,7 @@ class Artist
 
   # is a class method that returns the total number of songs associated to all existing artists
   def self.song_count
-    @@song_count
+    @@all.count
   end
 
 end
