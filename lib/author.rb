@@ -1,6 +1,8 @@
 class Author
   attr_accessor :name
 
+  @@post_count = 0
+
   def initialize(name)
     @name = name
     @posts = [] # initialize an empty collection
@@ -14,6 +16,7 @@ class Author
   def add_post(post)
     @posts << post
     post.author = self  # object reciprocity
+    @@post_count += 1
   end
 
   # create a new post with the name argument and associate the post and the author
@@ -23,8 +26,7 @@ class Author
   end
 
   def self.post_count
-    post_array = Post.all
-    post_array.length
+    @@post_count
   end
 
 end
