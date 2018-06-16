@@ -1,6 +1,8 @@
 class Artist
   attr_accessor :name
 
+  @@song_count = 0
+  
   def initialize(name)
     @name = name
     @songs = [] # initialize with an empty collection
@@ -11,6 +13,7 @@ class Artist
   def add_song(song)
     @songs << song
     song.artist = self # object reciprocity: song belongs to artist
+    @@song_count += 1
   end
 
   # expose the collection
@@ -34,8 +37,7 @@ class Artist
 
   # is a class method that returns the total number of songs associated to all existing artists
   def self.song_count
-    song_array = Song.all
-    song_array.length
+    @@song_count
   end
 
 end
