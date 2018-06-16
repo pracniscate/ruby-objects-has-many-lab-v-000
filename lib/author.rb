@@ -14,8 +14,8 @@ class Author
 
   # associate the post with the author
   def add_post(post)
-    @posts << post
     post.author = self  # object reciprocity
+    @posts << post
     @@post_count += 1
   end
 
